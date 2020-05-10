@@ -5,7 +5,7 @@ __pycache__/
 
 
 # Project
-RPGBaseGame/local.py
+local.py
 
 # C extensions
 *.so
