@@ -38,7 +38,7 @@ INSTALLED_APPS = [
     "widget_tweaks",
 ]
 
-LOGIN_URL = 'login/'
+LOGIN_URL = '/login/'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
