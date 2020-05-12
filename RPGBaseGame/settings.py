@@ -39,7 +39,7 @@ INSTALLED_APPS = [
     "rest_framework",
 ]
 
-LOGIN_URL = 'usrauth/login/'
+LOGIN_URL = '/usrauth/login/'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
