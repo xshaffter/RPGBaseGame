@@ -1,7 +1,7 @@
 from django.contrib.auth import logout, authenticate, login
 from django.http import HttpResponseRedirect
 from django.shortcuts import render
-from django.urls import reverse
+from django.urls import reverse, path
 
 from django.views import View
 
@@ -42,3 +42,9 @@ class LoginView(View):
 def logout_view(request):
     logout(request)
     return redirect("usr_login")
+
+
+urlpatterns = [
+    path('login/', LoginView.as_view(), name="usr_login"),
+    path('logout/', logout_view, name="usr_logout"),
+]

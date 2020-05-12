@@ -9,11 +9,23 @@ class Class(CommonModel):
     initiative = models.IntegerField(default=0)
     speed = models.IntegerField(default=0)
 
+    def __str__(self):
+        return self.name
+
+    def __unicode__(self):
+        return self.name
+
 
 class Race(CommonModel):
     name = models.CharField(max_length=50)
     initiative = models.IntegerField(default=0)
     speed = models.IntegerField(default=0)
+
+    def __str__(self):
+        return self.name
+
+    def __unicode__(self):
+        return self.name
 
 
 class Weapon(CommonModel):
@@ -21,15 +33,33 @@ class Weapon(CommonModel):
     attack = models.IntegerField(default=0)
     defense = models.IntegerField(default=0)
 
+    def __str__(self):
+        return self.item.name
+
+    def __unicode__(self):
+        return self.item.name
+
 
 class Armor(CommonModel):
     item = models.ForeignKey("cat.Item", on_delete=models.CASCADE)
     defense = models.IntegerField(default=0)
 
+    def __str__(self):
+        return self.item.name
+
+    def __unicode__(self):
+        return self.item.name
+
 
 class Accessory(CommonModel):
     item = models.ForeignKey("cat.Item", on_delete=models.CASCADE)
     attack = models.IntegerField(default=1)
+
+    def __str__(self):
+        return self.item.name
+
+    def __unicode__(self):
+        return self.item.name
 
 
 class Item(CommonModel):
@@ -37,3 +67,10 @@ class Item(CommonModel):
     name = models.CharField(max_length=20)
     max_quantity = models.PositiveIntegerField(default=1)
     description = models.TextField(blank=True, null=True)
+
+
+    def __str__(self):
+        return self.name
+
+    def __unicode__(self):
+        return self.name

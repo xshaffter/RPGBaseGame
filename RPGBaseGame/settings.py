@@ -36,9 +36,10 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     "widget_tweaks",
+    "rest_framework",
 ]
 
-LOGIN_URL = '/login/'
+LOGIN_URL = '/usrauth/login/'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',

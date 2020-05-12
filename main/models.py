@@ -18,6 +18,13 @@ class CommonModel(models.Model):
 class Profile(CommonModel):
     photo = models.FileField(upload_to='profile_images/', null=True, blank=True)
     user = models.OneToOneField(User, on_delete=models.CASCADE, related_name='profile')
+    max_characters = models.IntegerField(default=3)
+
+    def __str__(self):
+        return '{} profile'.format(self.user.username)
+
+    def __unicode__(self):
+        return '{} profile'.format(self.user.username)
 
 
 class Character(CommonModel):
@@ -45,7 +52,7 @@ class Character(CommonModel):
 
     character_class = models.ForeignKey("cat.Class", on_delete=models.SET_NULL, null=True, blank=False)
     race = models.ForeignKey("cat.Race", on_delete=models.SET_NULL, null=True, blank=False)
-    equipment = models.OneToOneField("main.CharacterEquipment", on_delete=models.CASCADE)
+    equipment = models.OneToOneField("main.CharacterEquipment", on_delete=models.CASCADE, null=True, blank=True)
 
 
 class ItemInventory(CommonModel):
