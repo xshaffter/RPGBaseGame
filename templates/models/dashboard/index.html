@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+{% load widget_tweaks %}
+
+
+{% block extrastyle %}
+{% endblock extrastyle %}
+
+
+{% block content %}
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 col-sm-12 col-lg-12">
+                <div class="card">
+                    <h3 class="card-title text-center">Noticias</h3>
+                    <div class="card-body">
+                        <div class="slider">
+                            {% for noticia in noticias %}
+                                <a href="{{ noticia.url }}"><img src="{{ noticia.img.url }}" alt="{{ noticia.title }}"></a>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row mt-2">
+            {% for profile_noticia in model.noticias.all %}
+                <div class="col-md-4">
+                    <div class="card">
+                        <h3 class="card-title text-center">{{ profile_noticia.title }}</h3>
+                        <div class="card-body">
+                            {% if profile_noticia.img %}
+                                <a href="{{ noticia.url }}"><img src="{{ noticia.img.url }}" alt="{{ noticia.title }}"></a>
+                            {% else %}
+                                <p>{{ profile_noticia.noticia_msg }}</p>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+
+        </div>
+    </div>
+{% endblock content %}
+
+{% block extrajs %}
+{% endblock extrajs %}

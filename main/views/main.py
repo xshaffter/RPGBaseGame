@@ -6,10 +6,13 @@ from django.urls import path
 
 
 def dashboard(request):
+    profile = request.user.profile
     context = {
-        'model_name': 'Login'
+        'title': 'Menú principal',
+        'model_name': 'Dashboard',
+        'model': profile
     }
-    return render(request, 'models/profile/index.html', context=context)
+    return render(request, 'models/dashboard/index.html', context=context)
 
 
 urlpatterns = [
